@@ -17,9 +17,17 @@ const chainMaker = {
     }
     return this;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  removeLink(position) {
+    if (
+      position < 1 ||
+      position > this.chain.length ||
+      !Number.isInteger(position)
+    ) {
+      this.chain = [];
+      throw new Error("You can't remove incorrect link!");
+    }
+    this.chain.splice(position - 1, 1);
+    return this;
   },
   reverseChain() {
     throw new NotImplementedError("Not implemented");
